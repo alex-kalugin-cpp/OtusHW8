@@ -103,7 +103,7 @@ int main()
       // увеличиваем число
       currentLevel++;
     }
- // вывод
+ // вывод результатов
     for(auto it : result)
         cout << it.first << ' ' << it.second << endl;
     return 0;
