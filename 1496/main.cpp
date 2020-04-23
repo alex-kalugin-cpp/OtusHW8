@@ -6,19 +6,20 @@
 using namespace std;
 
 int main() {
-    // задача простая, храним множество аккаунтов, при добавлении нового проверяем был ли он уже, если да - добавляем в множество спамеров
-    int N;
-    string tempstr;
-    set<string> unique, spamers;
+  // задача простая, храним множество аккаунтов, при добавлении нового проверяем
+  // был ли он уже, если да - добавляем в множество спамеров
+  int N;
+  string tempstr;
+  set<string> unique, spamers;
   cin >> N;
-    for(int i=0;i<N;++i)
-    {
-       cin >> tempstr;
-        if(unique.count(tempstr) == 1) spamers.insert(tempstr);
-            else unique.insert(tempstr);
-    }
-     for(const auto& item : spamers)
-         cout << item << endl;
+  for (int i = 0; i < N; ++i) {
+    cin >> tempstr;
+    if (unique.count(tempstr) == 1)
+      spamers.insert(tempstr);
+    else
+      unique.insert(tempstr);
+  }
+  for (const auto &item : spamers)
+    cout << item << endl;
   return 0;
 }
-
