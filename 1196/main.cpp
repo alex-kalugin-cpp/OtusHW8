@@ -4,9 +4,7 @@
 #include <iterator>
 #include <vector>
 using namespace std;
-int
-main()
-{
+int main() {
   // задача решается бинарным поиском по отсортированному вектору дат
   // преподавателя + несложный предварительный фильтр число записей
   // преподавателя
@@ -22,14 +20,12 @@ main()
   for (int i = 0; i < N; i++) {
     //заполнение списка преподавателя
     cin >> temp;
-    // поскольку вектор отсортированный миниммум - первое значение максимум -
-    // последнее
-    if (i == 0)
-      min = temp;
-    if (i == N - 1)
-      max = temp;
     prepYears.emplace_back(temp);
   }
+  // поскольку вектор отсортированный миниммум - первое значение
+  min = prepYears.at(0);
+  //максимум - последнее
+  max = prepYears.at(N - 1);
   //данные студента
   int M = 0, result = 0;
   cin >> M;
@@ -42,10 +38,9 @@ main()
     //проверка даты на вхождение интервал
     // без этого простого фильтра не укладываемся в time limit
     if ((temp >= min) && (temp <= max)) {
-      // проверка на наличеие в списке
+      // проверка на наличие в списке
       tlowerB = lower_bound(prepYears.begin(), prepYears.end(), temp);
-      if (tlowerB != endd && temp == (*tlowerB))
-        result++;
+      if (tlowerB != endd && temp == (*tlowerB)) result++;
     }
   }
   cout << result << endl;

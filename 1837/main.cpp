@@ -9,7 +9,7 @@
 using namespace std;
 //разбиение строки по разделителю
 // скопировано с ДЗ2
-std::vector<std::string> split(const std::string &str, char d) {
+std::vector<std::string> split(const std::string& str, char d) {
   std::vector<std::string> r;
 
   std::string::size_type start = 0;
@@ -49,7 +49,7 @@ int main() {
     // игроки команды
     vector<string> tempVs = split(temp, ' ');
     //для каждого игрока в мапу помещаем тех, с кем он играл в одной команде
-    for (auto it : tempVs) {
+    for (const auto& it : tempVs) {
       // а заодно помещаем в результат, пока со значением по умолчанию
       result[it] = "undefined";
       // shitcode
@@ -75,14 +75,14 @@ int main() {
     currentPlayers.push_back("Isenbaev");  // начинаем с легенды с уровнем 0
   while (!currentPlayers.empty()) {
     // для каждого игрока из списка
-    for (auto it : currentPlayers) {
+    for (const auto& it : currentPlayers) {
       // присваиваем число если не было
       if (result[it] == "undefined") result[it] = to_string(currentLevel);
       // проверяем есть ли игрок в рабочей мапе, если нет - значит уже обработан
       auto toDelete = teams.find(it);
       if (toDelete != teams.end()) {
         // всех сокомандников запоминаем, их будем проверять на следующем цикле
-        for (auto it2 : toDelete->second) {
+        for (const auto& it2 : toDelete->second) {
           tempCurrentPlayers.push_back(it2);
         }
         // игрока удаляем
